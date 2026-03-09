@@ -1,0 +1,29 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module contract ! in 
+    interface  ! in :contract
+        subroutine contract(list,nlist,n,clist,nc,ncmax) ! in :contract:contractSubroutine.f90
+            integer dimension(n,n),intent(in) :: list
+            integer dimension(n),intent(in),depend(n) :: nlist
+            integer, optional,intent(in),check(shape(list,0)==n),depend(list) :: n=shape(list,0)
+            integer dimension(n,ncmax),depend(n) :: clist
+            integer :: nc
+            integer, optional,check(shape(clist,1)==ncmax),depend(clist) :: ncmax=shape(clist,1)
+        end subroutine contract
+        subroutine cdrive(idx,list,nlist,n,nc,clist,ncmax,seq,iseq) ! in :contract:contractSubroutine.f90
+            integer :: idx
+            integer dimension(n,n) :: list
+            integer dimension(n),depend(n) :: nlist
+            integer, optional,check(shape(list,0)==n),depend(list) :: n=shape(list,0)
+            integer :: nc
+            integer dimension(n,ncmax),depend(n) :: clist
+            integer, optional,check(shape(clist,1)==ncmax),depend(clist) :: ncmax=shape(clist,1)
+            integer dimension(2,n),depend(n) :: seq
+            integer :: iseq
+        end subroutine cdrive
+    end interface 
+end python module contract
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

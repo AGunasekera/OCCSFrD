@@ -1,0 +1,15 @@
+[project]
+name = "occsfrd"
+version = "0.1.0"
+description = "A Python package to derive and implement spin-adapted and spin-free single- and multi-reference coupled cluster methods for open shell molecular electronic structure"
+authors = ["Alexander Gunasekera"]
+license = "MIT"
+readme = "README.md"
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.11"',
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

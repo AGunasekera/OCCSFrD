@@ -1,0 +1,8 @@
+name.in
+template.py
+
+mol
+basis
+
+generate python file name.py
+python3.11 name.py > name.out
