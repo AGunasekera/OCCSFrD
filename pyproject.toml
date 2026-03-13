@@ -14,8 +14,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "numpy",
+    "pyscf",
     "requests",
-    'importlib-metadata; python_version<"3.11"',
 ]
 
 [project.urls]
