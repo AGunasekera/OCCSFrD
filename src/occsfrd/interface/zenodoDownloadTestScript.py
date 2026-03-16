@@ -5,8 +5,10 @@ assert (len(sys.argv) == 2) and isinstance(sys.argv[1], str)
 
 ACCESS_TOKEN = sys.argv[1]
 headers = {'Authorization': f'Bearer {ACCESS_TOKEN}'}
-r = requests.get('https://sandbox.zenodo.org/api/deposit/depositions', headers=headers)
-r = requests.get('https://sandbox.zenodo.org/api/deposit/depositions/%s' % r.json()[1]['id'], headers=headers)
+deposition_url = 'https://sandbox.zenodo.org/api/deposit/depositions'
+which_deposition = 1
+r = requests.get(deposition_url, headers=headers)
+r = requests.get(deposition_url + "/" + r.json()[which_deposition]['id'], headers=headers)
 fNamesAndDownloadLinks = [(file['filename'], file['links']['download']) for file in r.json()['files']]
 for name, link in fNamesAndDownloadLinks:
     with open(name, 'wb') as f:

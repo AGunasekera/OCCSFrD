@@ -1,6 +1,6 @@
 [project]
 name = "occsfrd"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Python package to derive and implement spin-adapted and spin-free single- and multi-reference coupled cluster methods for open shell molecular electronic structure"
 authors = [
     { name="Alexander Gunasekera", email="alexander.gunasekera@gmail.com" },
@@ -16,6 +16,7 @@ classifiers = [
 dependencies = [
     "numpy",
     "pyscf",
+    "networkx",
     "requests",
 ]
 
@@ -25,3 +26,8 @@ Homepage = "https://github.com/AGunasekera/OCCSFrD"
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+ext-modules = [
+  {name = "occsfrd.wick.contract.contractEXT", sources = ["contractEXT.so", "contract.f90", "contractSubroutine.pyf", "contract.x"]}
+]
