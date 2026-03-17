@@ -29,8 +29,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 ext-modules = [
-  {name = "occsfrd.wick.contract.contractEXT", sources = ["contractEXT.so", "contract.f90", "contractSubroutine.pyf", "contract.x"]}
-]
+    {name = "occsfrd.wick.contract.contractEXT", sources = [], extra-objects = ["src/occsfrd/wick/contract/contractEXT.so", "src/occsfrd/wick/contract/contract.f90", "src/occsfrd/wick/contract/contractSubroutine.pyf", "src/occsfrd/wick/contract/contract.x"], optional = true}
+    ]
+
 [dependency-groups]
 dev = [
     "myst-nb (>=1.4.0,<2.0.0)",
