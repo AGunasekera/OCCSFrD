@@ -31,3 +31,9 @@ build-backend = "setuptools.build_meta"
 ext-modules = [
   {name = "occsfrd.wick.contract.contractEXT", sources = ["contractEXT.so", "contract.f90", "contractSubroutine.pyf", "contract.x"]}
 ]
+[dependency-groups]
+dev = [
+    "myst-nb (>=1.4.0,<2.0.0)",
+    "sphinx-autoapi (>=3.8.0,<4.0.0)",
+    "sphinx-rtd-theme (>=3.1.0,<4.0.0)"
+]
