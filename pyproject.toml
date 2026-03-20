@@ -24,13 +24,13 @@ dependencies = [
 Homepage = "https://github.com/AGunasekera/OCCSFrD"
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["meson-python"]
+build-backend = "mesonpy"
 
-[tool.setuptools]
-ext-modules = [
-    {name = "occsfrd.wick.contract.contractEXT", sources = [], extra-objects = ["src/occsfrd/wick/contract/contractEXT.so", "src/occsfrd/wick/contract/contract.f90", "src/occsfrd/wick/contract/contractSubroutine.pyf", "src/occsfrd/wick/contract/contract.x"], optional = true}
-    ]
+# [tool.meson-python]
+# ext-modules = [
+#     {name = "occsfrd.wick.contract.contractEXT", sources = [], extra-objects = ["src/occsfrd/wick/contract/contractEXT.so", "src/occsfrd/wick/contract/contract.f90", "src/occsfrd/wick/contract/contractSubroutine.pyf", "src/occsfrd/wick/contract/contract.x"], optional = false}
+#     ]
 
 [dependency-groups]
 dev = [
