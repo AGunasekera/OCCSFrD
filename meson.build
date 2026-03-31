@@ -30,7 +30,8 @@ f2py_dep = declare_dependency(
 contract_source = custom_target('contractEXT',
   build_by_default: true,
   input : ['src/occsfrd/wick/contract/contract.f90'],
-  output : ['contractEXT.so', 'contractSubroutine.pyf', 'contract.x'],
+#  output : ['contractEXT.so', 'contractSubroutine.pyf', 'contract.x'],
+  output : ['contractmodule.c'],
   command : [py, '-m', 'numpy.f2py', '@INPUT@', '-m', 'contract', '--lower']
 )
 
