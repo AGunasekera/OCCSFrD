@@ -96,6 +96,6 @@ py.extension_module('occsfrd.wick.contract.contractEXT',
   [contract_source],
 #  include_directories : 'src/occsfrd/wick/contract/',
   dependencies : [np_dep, f2py_dep],
-  subdir: 'src/occsfrd/wick/contract/',
+  subdir: 'occsfrd/wick/contract/',
   install : true,
 )
