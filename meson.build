@@ -4,6 +4,12 @@ add_languages('fortran', native: false)
 
 py = import('python').find_installation(pure: false)
 
+# Install the Python package files
+py.install_sources(
+  'src/occsfrd/__init__.py',
+  subdir: 'occsfrd',
+)
+
 # NumPy >=2.0 provides include dirs via dependency()
 np_dep = dependency('numpy')
 
@@ -49,10 +55,4 @@ py.extension_module('occsfrd.wick.contract.contractEXT',
   dependencies : [np_dep, f2py_dep],
   subdir: 'src/occsfrd/wick/contract/',
   install : true,
-)
-
-# Install the Python package files
-py.install_sources(
-  'src/occsfrd/__init__.py',
-  subdir: 'occsfrd',
 )

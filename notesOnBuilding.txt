@@ -1,0 +1,30 @@
+zenodo API integration
+ still on test zenodo
+ need systematic equation identifiers (custom metadata?)
+
+documentation
+ build using sphinx on dpt02 machine, push to github, syncs with readthedocs
+
+testing
+ unit tests not really done
+ continuous integration?
+
+release
+ build
+  in occsfrd directory (builds to dist/), run:
+  python3 -m build
+  pyproject.toml defined to use meson-python
+  meson.build builds fortran extension
+ manylinux builds
+  podman image manylinux2014
+  build in multiple python versions
+ macos builds
+  currently building on old laptop - need newer versions?
+ windows builds
+  unknown
+ twine upload to testpypi (will do full pypi later)
+
+installation
+ pip install from testpypi, extra url pypi for dependencies
+ trying mac version, need to fix gfortran (gcc)
+ have not tried linux versions from pip yet (university access)
