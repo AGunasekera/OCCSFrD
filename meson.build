@@ -1,4 +1,4 @@
-project('occsfrd', 'c')
+project('occsfrd', 'c', version: "0.1.3")
 
 add_languages('fortran', native: false)
 
@@ -8,6 +8,49 @@ py = import('python').find_installation(pure: false)
 py.install_sources(
   'src/occsfrd/__init__.py',
   subdir: 'occsfrd',
+)
+
+py.install_sources(
+  'src/occsfrd/ansatz/__init__.py',
+  'src/occsfrd/ansatz/closedshellcc.py',
+  'src/occsfrd/ansatz/normalorderedcc.py',
+  'src/occsfrd/ansatz/utils.py',
+  subdir: 'occsfrd/ansatz',
+)
+
+py.install_sources(
+  'src/occsfrd/interface/__init__.py',
+  'src/occsfrd/interface/pyscfoperator.py',
+  'src/occsfrd/interface/storeequations.py',
+  'src/occsfrd/interface/texify.py',
+  subdir: 'occsfrd/interface',
+)
+
+py.install_sources(
+  'src/occsfrd/reference/__init__.py',
+  'src/occsfrd/reference/UGA.py',
+  subdir: 'occsfrd/reference',
+)
+
+py.install_sources(
+  'src/occsfrd/solve/__init__.py',
+  'src/occsfrd/solve/cc.py',
+  'src/occsfrd/solve/diis.py',
+  subdir: 'occsfrd/solve',
+)
+
+py.install_sources(
+  'src/occsfrd/wick/__init__.py',
+  'src/occsfrd/wick/contractions.py',
+  'src/occsfrd/wick/index.py',
+  'src/occsfrd/wick/operator.py',
+  'src/occsfrd/wick/tensor.py',
+  subdir: 'occsfrd/wick',
+)
+
+py.install_sources(
+  'src/occsfrd/wick/contract/__init__.py',
+  subdir: 'occsfrd/wick/contract',
 )
 
 # NumPy >=2.0 provides include dirs via dependency()
