@@ -1,4 +1,4 @@
-project('occsfrd', 'c', version: '0.1.4')
+project('occsfrd', 'c', version: '0.1.4.a')
 
 add_languages('fortran', native: false)
 
