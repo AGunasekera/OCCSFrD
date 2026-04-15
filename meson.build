@@ -90,7 +90,7 @@ contract_source = custom_target('contractEXT',
 #    install: true,
 #)
 
-py.extension_module('occsfrd.wick.contract.contractEXT',
+py.extension_module('contractEXT',
 #  ['contract.f90', 'contractEXT.so', incdir_f2py / 'contract.x'],
 #  [incdir],
   [contract_source],
