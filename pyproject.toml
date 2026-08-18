@@ -1,7 +1,7 @@
 [project]
 name = "occsfrd"
 dynamic = ["version"]
-description = "A Python package to derive and implement spin-adapted and spin-free single- and multi-reference coupled cluster methods for open shell molecular electronic structure"
+description = "OCCSFrD: A Python package to derive and implement spin-adapted and spin-free single- and multi-reference coupled cluster methods for open shell molecular electronic structure"
 authors = [
     { name="Alexander Gunasekera", email="alexander.gunasekera@gmail.com" },
 ]
@@ -24,7 +24,13 @@ dependencies = [
 Homepage = "https://github.com/AGunasekera/OCCSFrD"
 
 [build-system]
-requires = ["meson-python>=0.15.0", "numpy>=2.0"]
+requires = [
+  "meson>=0.60.0",
+  "meson-python>=0.15.0",
+  "wheel",
+  "pip",
+  "numpy>=2.0"
+]
 build-backend = "mesonpy"
 
 #[tool.meson-python]

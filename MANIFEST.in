@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+include meson.build
+
+# Ensure Fortran sources and generated wrapper inputs are included in sdist
+recursive-include src/occsfrd/wick/contract *.f90 *.f95 *.pyf *.c *.x *.h
+
+# Include all Python sources under src so sdist contains package code
+recursive-include src/occsfrd *.py
+
+# Exclude common unwanted files
+global-exclude __pycache__ *.py[cod]
