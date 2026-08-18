@@ -4,7 +4,7 @@ This document describes how to build the project for publication (sdist + wheels
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.11+
 - pip
 - For publication: `build`, `meson`, `meson-python`, `wheel`, `twine`, `numpy`
 - For development: `meson`, `meson-python`, `numpy` and a Fortran compiler (e.g. `gfortran`)
@@ -33,7 +33,7 @@ This produces a source distribution and a wheel suitable for publishing on PyPI.
 python -m build
 ```
 
-Artifacts are written to `dist/` (for example `dist/occsfrd-0.1.4.a.tar.gz` and a wheel file).
+Artefacts are written to `dist/` (for example `dist/occsfrd-0.1.4.a.tar.gz` and a wheel file).
 
 3. (Optional) Inspect the sdist contains Fortran sources and wrapper inputs:
 
@@ -77,7 +77,7 @@ This will invoke the Meson backend to build the Fortran extension and place the 
 meson compile -C build
 ```
 
-or reinstall the editable package to rebuild native artifacts:
+or reinstall the editable package to rebuild native artefacts:
 
 ```bash
 pip uninstall -y occsfrd
@@ -86,7 +86,7 @@ pip install -e .
 
 ## CI publishing notes (GitHub Actions)
 
-- The repo contains a workflow that runs `cibuildwheel` to build wheels across platforms and uploads artifacts. To automatically publish on tag releases, add a step that uses `PYPI_API_TOKEN` (a repository secret) and runs `twine upload` (or use `pypa/gh-action-pypi-publish`). Example publish step (after building wheels):
+- The repo contains a workflow that runs `cibuildwheel` to build wheels across platforms and uploads artefacts. To automatically publish on tag releases, add a step that uses `PYPI_API_TOKEN` (a repository secret) and runs `twine upload` (or use `pypa/gh-action-pypi-publish`). Example publish step (after building wheels):
 
 ```yaml
 - name: Publish to PyPI

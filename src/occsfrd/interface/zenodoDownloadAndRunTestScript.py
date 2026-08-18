@@ -2,7 +2,7 @@ import sys
 import requests
 import pickle
 from pyscf import gto, ao2mo, scf, fci, mp, cc
-from openshellcc import wick, ansatz, solve, interface
+from occsfrd import wick, ansatz, solve, interface
 
 assert (len(sys.argv) == 2) and isinstance(sys.argv[1], str)
 
