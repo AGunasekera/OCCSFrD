@@ -1,4 +1,7 @@
-project('occsfrd', 'c', version: '0.1.4.a')
+project('occsfrd', 'c',
+  version: '0.1.4.a',
+  default_options: ['python.install_env=auto']
+)
 
 add_languages('fortran', native: false)
 
