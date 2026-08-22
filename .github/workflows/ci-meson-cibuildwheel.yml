@@ -41,7 +41,7 @@ jobs:
           brew update || true
           brew install gcc || true
 
-      - name: Build wheels (Windows: x64 only)
+      - name: Build wheels (Windows x64 only)
         if: runner.os == 'Windows'
         env:
           CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
