@@ -52,8 +52,16 @@ jobs:
         run: |
           cibuildwheel --output-dir wheelhouse
 
-      - name: Build wheels (non-Windows)
-        if: runner.os != 'Windows'
+      - name: Build wheels (MacOS)
+        if: runner.os == 'macOS'
+        env:
+          MACOSX_DEPLOYMENT_TARGET: "13.5"
+          CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
+        run: |
+          cibuildwheel --output-dir wheelhouse
+
+      - name: Build wheels (Linux)
+        if: runner.os == 'Linux'
         env:
           CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
         run: |
