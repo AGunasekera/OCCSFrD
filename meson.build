@@ -1,5 +1,5 @@
 project('occsfrd', 'c',
-  version: '0.1.4.a',
+  version: '0.1.5',
   default_options: ['python.install_env=auto']
 )
 
