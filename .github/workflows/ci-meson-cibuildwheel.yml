@@ -11,8 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        # os: [ubuntu-latest, macos-latest, windows-latest]
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -27,13 +26,34 @@ jobs:
           python -m pip install --upgrade pip
           pip install meson meson-python cibuildwheel build
 
+      - name: Set up MSYS2 + gfortran (Windows)
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc-fortran
+          add_to_path: true
+
       - name: Install macOS toolchain (gfortran)
         if: runner.os == 'macOS'
         run: |
           brew update || true
           brew install gcc || true
 
-      - name: Build wheels
+      - name: Build wheels (Windows: x64 only)
+        if: runner.os == 'Windows'
+        env:
+          CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
+          CIBW_ARCHS: "x64"
+          FC: gfortran
+          CC: gcc
+          CXX: g++
+        run: |
+          cibuildwheel --output-dir wheelhouse
+
+      - name: Build wheels (non-Windows)
+        if: runner.os != 'Windows'
         env:
           CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
         run: |
