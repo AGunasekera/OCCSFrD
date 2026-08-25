@@ -1,4 +1,6 @@
 import pickle
+import sys
+import requests
 
 # def saveEquation(equation):
 #     d = {}
@@ -44,3 +46,22 @@ def load(name):
     with open(name + ".pkl", 'rb') as f:
         up = pickle.Unpickler(f)
         return up.load()
+
+def downloadFromZenodo(eqnName, ACCESS_TOKEN=""):
+    headers = {'Authorization': f'Bearer {ACCESS_TOKEN}'}
+    deposition_url = 'https://sandbox.zenodo.org/api/deposit/depositions'
+    which_deposition = 0
+    r = requests.get(deposition_url, headers=headers)
+    r = requests.get("%s/%s" % (deposition_url, r.json()[which_deposition]['id']), headers=headers)
+    fNamesAndDownloadLinks = [(file['filename'], file['links']['download']) for file in r.json()['files']]
+
+    eqnFileName = eqnName + ".eqn"
+
+    for name, link in fNamesAndDownloadLinks:
+        if name == eqnFileName:
+            with open(name[:-3]+"pkl", 'wb') as f:
+                r = requests.get(link, headers=headers)
+                f.write(r.content)
+
+    sys.modules['openshellcc'] = sys.modules['occsfrd']
+    return load(eqnName)
