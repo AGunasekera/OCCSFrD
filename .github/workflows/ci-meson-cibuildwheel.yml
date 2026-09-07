@@ -34,7 +34,7 @@ jobs:
           update: true
           install: >-
             mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc-fortran
-          add_to_path: true
+          # add_to_path: true
 
       - name: Install macOS toolchain (gfortran)
         if: runner.os == 'macOS'
