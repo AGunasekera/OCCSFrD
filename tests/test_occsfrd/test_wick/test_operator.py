@@ -7,12 +7,40 @@ def index_p0():
     return index.Index("p0", False)
 
 @pytest.fixture
+def index_p1():
+    return index.Index("p1", False)
+
+@pytest.fixture
 def basic_cre_p0a(index_p0):
     return operator.BasicOperator(index_p0, True, True)
 
 @pytest.fixture
 def basic_ann_p0a(index_p0):
     return operator.BasicOperator(index_p0, False, True)
+
+@pytest.fixture
+def basic_cre_p0b(index_p0):
+    return operator.BasicOperator(index_p0, True, False)
+
+@pytest.fixture
+def basic_ann_p0b(index_p0):
+    return operator.BasicOperator(index_p0, False, False)
+
+@pytest.fixture
+def basic_cre_p1a(index_p1):
+    return operator.BasicOperator(index_p1, True, True)
+
+@pytest.fixture
+def basic_ann_p1a(index_p1):
+    return operator.BasicOperator(index_p1, False, True)
+
+@pytest.fixture
+def basic_cre_p1b(index_p1):
+    return operator.BasicOperator(index_p1, True, False)
+
+@pytest.fixture
+def basic_ann_p1b(index_p1):
+    return operator.BasicOperator(index_p1, False, False)
 
 def test_conjugateBasic(basic_cre_p0a, basic_ann_p0a):
     assert basic_cre_p0a.conjugate() == basic_ann_p0a
@@ -37,8 +65,14 @@ def test_checkNilpotency(basic_cre_p0a, basic_ann_p0a):
     assert (basic_cre_p0a * basic_ann_p0a).checkNilpotency()
     assert not (basic_cre_p0a * basic_cre_p0a).checkNilpotency()
 
-def test_conjugateProduct():
-    assert True
+def test_conjugateProduct(basic_cre_p0a, basic_ann_p0a, basic_cre_p1a, basic_ann_p1a):
+    assert (basic_cre_p0a * basic_ann_p0a).conjugate() == basic_cre_p0a * basic_ann_p0a
+    assert (basic_cre_p0a * basic_cre_p1a).conjugate() == basic_ann_p1a * basic_ann_p0a
+
+def test_copyProduct(basic_cre_p0a, basic_ann_p0a):
+    prod = basic_cre_p0a * basic_ann_p0a
+    assert copy(prod) == prod
+    assert not (copy(prod) is prod)
 
 def test_collectSummandList():
     assert True
