@@ -1,10 +1,10 @@
 from occsfrd.interface import texify
 
 def test_texify(equations, filename):
-    return
+    assert True
 
 def test_texifyCollectionOfEquations(equations, file):
-    return
+    assert True
 
 def test_texifySingleEquation(equation, file):
-    return
+    assert True

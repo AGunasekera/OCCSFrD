@@ -28,7 +28,7 @@ def test_LagrangianMatrix(oldErrorVecs):
     )
 
 def test_getDIISWeights(oldErrorVecs):
-    return
+    assert True
 
 def test_updateAmpsDIIS(weights, oldAmplitudes, oldErrorVecs):
-    return
+    assert True

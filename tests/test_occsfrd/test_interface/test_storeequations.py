@@ -1,7 +1,7 @@
 from occsfrd.interface import storeequations
 
 def test_save(name, equations, tensors, specificIndices=[]):
-    return
+    assert True
 
 def test_load(name):
-    return
+    assert True

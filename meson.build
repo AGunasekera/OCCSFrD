@@ -5,7 +5,7 @@ project('occsfrd', 'c',
 
 add_languages('fortran', native: false)
 
-py = import('python').find_installation(pure: false)
+py = import('python').find_installation('python', pure: false)
 
 # NumPy >=2.0 provides include dirs via dependency()
 np_dep = dependency('numpy')
@@ -17,10 +17,21 @@ incdir_f2py = run_command(py,
 
 incdir = include_directories('src/occsfrd/wick/contract/')
 
-# f2py include dir (for fortranobject.h) is not in dependency('numpy'),
-# so add it separately
+# Copy the f2py support sources into the build tree. Referencing them directly
+# from NumPy's isolated build environment leaves Ninja with a deleted path.
+f2py_fortranobject_c = configure_file(
+  input : incdir_f2py / 'fortranobject.c',
+  output : 'fortranobject.c',
+  copy : true,
+)
+f2py_fortranobject_h = configure_file(
+  input : incdir_f2py / 'fortranobject.h',
+  output : 'fortranobject.h',
+  copy : true,
+)
+
 f2py_dep = declare_dependency(
-  include_directories : incdir_f2py,
+  include_directories : include_directories('.'),
 )
 
 # Generate the f2py wrappers
@@ -32,7 +43,7 @@ contract_source = custom_target('contractmodule.c',
 )
 
 py.extension_module('contractEXT',
-  ['src/occsfrd/wick/contract/contract.f90', contract_source, incdir_f2py / 'fortranobject.c'],
+  ['src/occsfrd/wick/contract/contract.f90', contract_source, f2py_fortranobject_c],
   dependencies : [np_dep, f2py_dep],
   subdir: 'occsfrd/wick/contract/',
   install : true,

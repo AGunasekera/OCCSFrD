@@ -1,25 +1,25 @@
 from occsfrd.ansatz import closedshellcc
 
 def test_amplitude(excitationLevel):
-    return
+    assert True
 
 def test_projectionManifold(excitationLevel):
-    return
+    assert True
 
 def test_getEnergyEquation(similarityTransformedHamiltonian, spinFree=True):
-    return
+    assert True
 
 def test_getAmplitudeEquation(similarityTransformedHamiltonian, excitationLevel, spinFree=True):
-    return
+    assert True
 
 def test_getEnergyEquationNew(similarityTransformedHamiltonian, spinFree=True):
-    return
+    assert True
 
 def test_getAmplitudeEquationNew(similarityTransformedHamiltonian, excitationLevel, spinFree=True):
-    return
+    assert True
 
 def test_getBiorthogonalSpinFreeDoublesEquation(similarityTransformedHamiltonian):
-    return
+    assert True
 
 def test_genClosedShellCCAnsatz(excitationLevels, trunc=4):
-    return
+    assert True

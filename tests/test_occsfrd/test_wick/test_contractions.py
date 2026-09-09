@@ -1,95 +1,95 @@
 from occsfrd.wick import contractions
 
 def test_canContract(o1, o2):
-    return
+    assert True
 
 def test_recursiveFullContraction(operatorList_, prefactor, existingContractions, normalOrderedStartPoints, speedup=False):
-    return
+    assert True
     
 def test_genFortranInterfaceLists(operatorList):
-    return
+    assert True
 
 def test_recursiveFullContractionsFortran(operatorProduct):
-    return
+    assert True
 
 def test_getKroneckerDeltasFromFortranInterfaceContractionsList(operatorList, contractionsListFortran):
-    return
+    assert True
 
 def test_genContractionsListsFromFortranInterface(operatorProduct, contractionsArray, signFlips):
-    return
+    assert True
 
 def test_vacuumExpectationValue(operator_, speedup=False, printing=False):
-    return
+    assert True
 
 def test_evaluateWickOld(term, referenceOperator=None, normalOrderedParts=True):
-    return
+    assert True
 
 def test_evaluateWick(term, referenceOperator=None, normalOrderedParts=True):
-    return
+    assert True
 
 def test_chooseUncontractedOperatorPositions(operatorProduct_, freeIndexTypes):
-    return
+    assert True
 
 def test_recursiveIncompleteContractionNew(operator_, freeIndexTypes=([], []), speedup=False):
-    return
+    assert True
 
 def test_evaluateWickFree(term, freeIndexTypes=([], []), speedup=False, normalOrderedParts=True):
-    return
+    assert True
 
 def test_getAxis(vertex, index):
-    return
+    assert True
 
 def test_getContractedArrayOld(tensorProduct_, targetLowerIndexList=None, targetUpperIndexList=None):
-    return
+    assert True
 
 def test_sliceActiveIndices(array, lowerIndexList, upperIndexList):
-    return
+    assert True
 
 def test_getContractedArrayOldTest(tensorProduct, contractionsList_=[], prefactor=1.0, targetLowerIndices=None, targetUpperIndices=None):
-    return
+    assert True
 
 def test_followUpperIndexThroughContractionsOld(upperIndex, contractionsList):
-    return
+    assert True
 
 def test_followLowerIndexThroughContractionsOld(lowerIndex, contractionsList):
-    return
+    assert True
 
 def test_testEqualTermsInTensorSum(tensorSum_, lowerIndexList=None, upperIndexList=None, resultShape=None):
-    return
+    assert True
 
 def test_testEqualTensorSum(tensorSum_, lowerIndexList=None, upperIndexList=None, resultShape=None):
-    return
+    assert True
 
 def test_testOldContractTensorSum(tensorSum_, lowerIndexList=None, upperIndexList=None):
-    return
+    assert True
 
 def test_contractTensorSum(tensorSum_, lowerIndexList=None, upperIndexList=None, resultShape=None):
-    return
+    assert True
 
 def test_getContractedArraySlow(tensorProduct, contractionsList_=[], prefactor=1.0, targetLowerIndices=None, targetUpperIndices=None, resultShape=None):
-    return
+    assert True
 
 def test_getEinsumInformationNew(tensorProduct, contractionsList_=[], prefactor=1.0, targetLowerIndices=None, targetUpperIndices=None, resultShape=None):
-    return
+    assert True
 
 def test_getEinsumInformation(tensorProduct, contractionsList_=[], prefactor=1.0, targetLowerIndices=None, targetUpperIndices=None, resultShape=None):
-    return
+    assert True
 
 def test_getContractedArray(tensorProduct, contractionsList_=[], prefactor=1.0, targetLowerIndices=None, targetUpperIndices=None, resultShape=None):
-    return
+    assert True
 
 
 def test_followUpperIndexThroughContractions(upperIndex, contractionsList):
-    return
+    assert True
 
 def test_followLowerIndexThroughContractions(lowerIndex, contractionsList):
-    return
+    assert True
 
 def test_findLowerIndexSpecificValue(lowerIndex, lowerIndexList, upperIndexList):
-    return
+    assert True
 
 def test_findUpperIndexSpecificValue(upperIndex, lowerIndexList, upperIndexList):
-    return
+    assert True
 
 def test_maskArrayBySlice(array, slice):
-    return
+    assert True

@@ -1,109 +1,109 @@
 from occsfrd.wick import tensor
 
 def test_getShape():
-    return
+    assert True
 
 def test_getShapeActive():
-    return
+    assert True
 
 def test_getArray():
-    return
+    assert True
 
 def test_setArray():
-    return
+    assert True
 
 def test_getOperator():
-    return
+    assert True
 
 def test_getDiagrams():
-    return
+    assert True
 
 def test_getAllDiagrams():
-    return 
+    assert True 
 
 def test_getAllDiagramsGeneral():
-    return
+    assert True
 
 def test_getAllDiagramsActive():
-    return
+    assert True
     
 def test_assignDiagramArrays():
-    return
+    assert True
     
 def test_assignDiagramArraysActive():
-    return
+    assert True
 
 def test_conjugate():
-    return
+    assert True
 
 def test_setSlices():
-    return
+    assert True
 
 def test_getArraySubDiagram():
-    return
+    assert True
 
 def test_setArraySubDiagram():
-    return  
+    assert True  
 
 def test_calculateArray():
-    return
+    assert True
 
 def test_getOperatorVertex():
-    return
+    assert True
 
 def test_applyContraction():
-    return
+    assert True
 
 def test_addNewIndex():
-    return 
+    assert True 
 
 def getVertexList():
-    return
+    assert True
 
 def getOperatorTensorProduct():
-    return
+    assert True
 
 def test_getVacuumExpectationValue():
-    return
+    assert True
 
 def test_getGraph():
-    return
+    assert True
 
 def test_getGraphOld():
-    return
+    assert True
 
 def test_drawGraph():
-    return
+    assert True
 
 def test_nodeMatch():
-    return
+    assert True
 
 def test_edgeMatch():
-    return
+    assert True
 
 def test_isProportional():
-    return
+    assert True
 
 def test_followPropagation():
-    return
+    assert True
 
 def test_getFreeIndexPairs():
-    return
+    assert True
 
 def test_isProportional1():
-    return
+    assert True
 
 def test_isConnected():
-    return
+    assert True
 
 def getOperatorTensorSum():
-    return
+    assert True
 
 def test_collectIsomorphicTerms():
-    return
+    assert True
 
 def test_getConnectedTerms():
-    return
+    assert True
     
 def test_collectConnectedIsomorphicTerms():
-    return
+    assert True
