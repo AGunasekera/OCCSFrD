@@ -1,29 +1,4 @@
-import pytest
 from occsfrd.wick import index
-
-@pytest.fixture
-def first():
-    return index.Index("i", True)
-
-@pytest.fixture
-def second():
-    return index.Index("i", True)
-
-@pytest.fixture
-def different():
-    return index.Index("a", False)
-
-@pytest.fixture
-def general():
-    return index.Index("p", False)
-
-@pytest.fixture
-def specific(general):
-    return index.SpecificOrbitalIndex("a", contractedFrom=general)
-
-@pytest.fixture
-def copied(general, specific):
-    return specific.contractedCopy(general)
 
 def test__hash__(first, second, different):
     assert hash(first) == hash(second)
