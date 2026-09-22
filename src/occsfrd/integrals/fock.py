@@ -15,8 +15,6 @@ def putIntegralsIntoEquation(hArray, gArray, nElec, nOrbs, equationsDict):
     hTensor.setArray(hArray)
     gTensor.setArray(gArray)
 
-    return hTensor, gTensor
-
 def initialiseAmplitudeTensors(nElec, nOrbs, nOcc, nActive, nVirtual, equationsDict):
     '''
     Take the arrays of one-electron and two-electron integrals and put them into the tensor objects in equationsDict
@@ -73,4 +71,5 @@ def buildFock(mf, equationsDict, frozenCore=None):
 
         nElec = (nElec[0] - frozenCore, nElec[1] - frozenCore)
 
-    return putIntegralsIntoEquation(fock, gArray, nElec, Norbs, equationsDict)
+    putIntegralsIntoEquation(fock, gArray, nElec, Norbs, equationsDict)
+    initialiseAmplitudeTensors(nElec, Norbs, Nocc, Nactive, Nvirtual, equationsDict)

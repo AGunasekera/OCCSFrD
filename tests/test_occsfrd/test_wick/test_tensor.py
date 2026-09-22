@@ -1,10 +1,19 @@
+import numpy as np
 from occsfrd.wick import tensor
 
 def test_getShape():
-    assert True
+    ATensor = tensor.Tensor("A", ["g", "p"], ["g", "h"])
+    ATensor.getShape([1,1,0])
+
+    assert ATensor.array.shape == (3,1,3,2)
+    assert np.all(ATensor.array == 0)
 
 def test_getShapeActive():
-    assert True
+    BTensor = tensor.Tensor("B", ["g", "v"], ["p", "a"])
+    BTensor.getShapeActive((3,2), 6)
+
+    assert BTensor.array.shape == (6,3,4,1)
+    assert np.all(BTensor.array == 0)
 
 def test_getArray():
     assert True
