@@ -1,16 +1,14 @@
 import numpy as np
 from occsfrd.wick import tensor
 
-def test_getShape():
-    ATensor = tensor.Tensor("A", ["g", "p"], ["g", "h"])
-    ATensor.getShape([1,1,0])
+def test_getShape(ATensor):
+    #Tensor is A_gp^gh, in 2 occupied and 1 virtual orbital
 
     assert ATensor.array.shape == (3,1,3,2)
     assert np.all(ATensor.array == 0)
 
-def test_getShapeActive():
-    BTensor = tensor.Tensor("B", ["g", "v"], ["p", "a"])
-    BTensor.getShapeActive((3,2), 6)
+def test_getShapeActive(BTensor):
+    #Tensor is B_gv^pa, in 2 doubly occupied, 1 singly occpied, and 3 virtual orbitals
 
     assert BTensor.array.shape == (6,3,4,1)
     assert np.all(BTensor.array == 0)

@@ -1,26 +1,31 @@
 import numpy as np
+import pytest
 from occsfrd.solve import diis
 
-def test_overlapMatrix(oldErrorVecs):
-    errors = [
-        [np.array([[1.0, 2.0]])],
-        [np.array([[3.0, 4.0]])],
-    ]
+@pytest.fixture
+def oldErrorVecs():
+    return [[np.array([[1.0, 2.0]])], [np.array([[3.0, 4.0]])]]
 
-    result = diis.overlapMatrix(errors)
+def test_overlapMatrix(oldErrorVecs):
+    # errors = [
+    #     [np.array([[1.0, 2.0]])],
+    #     [np.array([[3.0, 4.0]])],
+    # ]
+
+    result = diis.overlapMatrix(oldErrorVecs)
 
     expected = np.array([
         [5.0, 11.0],
         [11.0, 25.0],
     ])
-    np.testing.assert_allclose(result, expected)
+    assert np.allclose(result, expected)
 
 def test_LagrangianMatrix(oldErrorVecs):
-    errors = [[np.array([[1.0]])], [np.array([[2.0]])]]
+    # errors = [[np.array([[1.0]])], [np.array([[2.0]])]]
 
-    result = diis.LagrangianMatrix(errors)
+    result = diis.LagrangianMatrix(oldErrorVecs)
 
-    np.testing.assert_array_equal(
+    assert np.allclose(
         result,
         [[1.0, 2.0, 1.0],
          [2.0, 4.0, 1.0],
@@ -28,7 +33,21 @@ def test_LagrangianMatrix(oldErrorVecs):
     )
 
 def test_getDIISWeights(oldErrorVecs):
-    assert True
+    result = diis.getDIISWeights(oldErrorVecs)
+
+    assert np.allclose(
+        result,
+        [[1.0, 2.0, 1.0],
+         [2.0, 4.0, 1.0],
+         [1.0, 1.0, 0.0]],
+    )
 
 def test_updateAmpsDIIS(weights, oldAmplitudes, oldErrorVecs):
-    assert True
+    result = diis.updateAmpsDIIS(oldErrorVecs)
+
+    assert np.allclose(
+        result,
+        [[1.0, 2.0, 1.0],
+         [2.0, 4.0, 1.0],
+         [1.0, 1.0, 0.0]],
+    )
