@@ -13,11 +13,19 @@ def test_getShapeActive(BTensor):
     assert BTensor.array.shape == (6,3,4,1)
     assert np.all(BTensor.array == 0)
 
-def test_getArray():
-    assert True
+def test_getAndSetArray():
+    fTensor = tensor.Tensor("f", ["g"], ["g"])
+    assert fTensor.getArray() is None
 
-def test_setArray():
-    assert True
+    fTensor.getShape([1, 0, 0])
+    assert np.all(fTensor.getArray() == np.array([0, 0, 0], [0, 0, 0], [0, 0, 0]))
+
+    fTensor.setArray(np.array([1, 1], [1, 1]))
+    assert np.all(fTensor.getArray() == np.array([0, 0, 0], [0, 0, 0], [0, 0, 0]))
+
+    fTensor.setArray(np.array([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+    assert np.all(fTensor.getArray() == np.array([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+
 
 def test_getOperator():
     assert True
@@ -64,10 +72,10 @@ def test_applyContraction():
 def test_addNewIndex():
     assert True 
 
-def getVertexList():
+def test_getVertexList():
     assert True
 
-def getOperatorTensorProduct():
+def test_getOperatorTensorProduct():
     assert True
 
 def test_getVacuumExpectationValue():

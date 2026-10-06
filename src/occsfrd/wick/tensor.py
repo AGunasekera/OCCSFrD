@@ -153,7 +153,7 @@ class Tensor:
         '''
         Sets new coeffeicient array for tensor, checking for correct shape
         '''
-        if array.shape == self.array.shape:
+        if (array.shape == self.array.shape) or (array.shape is None):
             self.array = array
         else:
             print("Array is of wrong shape:", array.shape, self.array.shape)
