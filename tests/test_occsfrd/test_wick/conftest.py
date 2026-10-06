@@ -96,16 +96,24 @@ def ccd_gt_uncontracted(twoBody_hhpp, amplitude_pphh):
 
 @pytest.fixture
 def ccd_directTerm(ccd_gt_uncontracted):
-    lower = ccd_gt_uncontracted.lowerIndices
-    upper = ccd_gt_uncontracted.upperIndices
+    lower = ccd_gt_uncontracted.freeLowerIndices
+    upper = ccd_gt_uncontracted.freeUpperIndices
 
     directContractions = [(lower[0], upper[2]), (lower[1], upper[3]), (lower[2], upper[0]), (lower[3], upper[1])]
-    return wick.tensor.TensorProduct(ccd_gt_uncontracted.TensorList, contractions=directContractions)
+    return wick.tensor.TensorProduct(ccd_gt_uncontracted.tensorList, contractionsList=directContractions)
 
 @pytest.fixture
 def ccd_exchangeTerm(ccd_gt_uncontracted):
-    lower = ccd_gt_uncontracted.lowerIndices
-    upper = ccd_gt_uncontracted.upperIndices
+    lower = ccd_gt_uncontracted.freeLowerIndices
+    upper = ccd_gt_uncontracted.freeUpperIndices
 
-    directContractions = [(lower[0], upper[3]), (lower[1], upper[2]), (lower[2], upper[0]), (lower[3], upper[1])]
-    return wick.tensor.TensorProduct(ccd_gt_uncontracted.TensorList, contractions=directContractions)
+    exchangeContractions = [(lower[0], upper[3]), (lower[1], upper[2]), (lower[2], upper[0]), (lower[3], upper[1])]
+    return wick.tensor.TensorProduct(ccd_gt_uncontracted.tensorList, contractionsList=exchangeContractions)
+
+@pytest.fixture
+def ccd_exchangeTerm1(ccd_gt_uncontracted):
+    lower = ccd_gt_uncontracted.freeLowerIndices
+    upper = ccd_gt_uncontracted.freeUpperIndices
+
+    exchangeContractions = [(lower[0], upper[2]), (lower[1], upper[3]), (lower[2], upper[1]), (lower[3], upper[0])]
+    return wick.tensor.TensorProduct(ccd_gt_uncontracted.tensorList, contractionsList=exchangeContractions)

@@ -88,8 +88,9 @@ def test_nodeMatch():
 def test_edgeMatch():
     assert True
 
-def test_isProportional():
-    assert True
+def test_isProportional(ccd_directTerm, ccd_exchangeTerm, ccd_exchangeTerm1):
+    assert not ccd_directTerm.isProportional(ccd_exchangeTerm)
+    assert ccd_exchangeTerm.isProportional(ccd_exchangeTerm1)
 
 def test_followPropagation():
     assert True
