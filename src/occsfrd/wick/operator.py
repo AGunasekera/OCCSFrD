@@ -317,7 +317,9 @@ class OperatorSum:
             return NotImplemented
 
     def __eq__(self, other):
-        if self.summandList == []:
+        if isinstance(other, OperatorSum):
+            return np.all(self.summandList) == np.all(other.summandList)
+        elif self.summandList == []:
             return other == 0
         elif len(self.summandList) == 1:
             return self.summandList[0] == other

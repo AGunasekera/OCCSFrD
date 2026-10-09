@@ -33,6 +33,11 @@ def test_copyProduct(basic_cre_p0a, basic_ann_p0a):
     assert copy(prod) == prod
     assert not (copy(prod) is prod)
 
+def test_productEquality():
+    g0, g1 = index.Index("g_{0}", False), index.Index("g_{1}", False)
+    assert operator.BasicOperator(g0, True, False) * operator.BasicOperator(g1, False, False) == operator.BasicOperator(g0, True, False) * operator.BasicOperator(g1, False, False)
+    assert not operator.BasicOperator(g0, True, False) * operator.BasicOperator(g1, False, False) == (operator.BasicOperator(g0, True, True) * operator.BasicOperator(g1, False, True))
+
 def test_collectSummandList():
     assert True
 
