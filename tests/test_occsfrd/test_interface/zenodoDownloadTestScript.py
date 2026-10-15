@@ -11,7 +11,7 @@ r = requests.get(deposition_url, headers=headers)
 r = requests.get("%s/%s" % (deposition_url, r.json()[which_deposition]['id']), headers=headers)
 fNamesAndDownloadLinks = [(file['filename'], file['links']['download']) for file in r.json()['files']]
 
-eqnFileName = "N0S0_lCCSD.eqn"
+eqnFileName = "N0S0_qCCSD.eqn"
 
 for name, link in fNamesAndDownloadLinks:
     if name == eqnFileName:
