@@ -352,7 +352,7 @@ def normalOrder(operator):
 
 def excitation(creationIndicesList_, annihilationIndicesList_, spinList_):
     """
-    Excitation operator from orbitals in annihilationIndicesList_ to orbitals in creationIndicesList_, with no spin flips
+    Excitation operator from orbitals in ``annihilationIndicesList_`` to orbitals in ``creationIndicesList_``, with no spin flips
 
     Args:
         creationIndicesList_ (list): list of index.Index objects for orbitals into which electrons are excited
