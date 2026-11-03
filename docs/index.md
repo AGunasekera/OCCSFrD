@@ -7,16 +7,12 @@
 
 installation
 getting_started
-quickstart
-usage
-tutorial
 ```
 
 ```{toctree}
 :maxdepth: 2
 :caption: User guide
 
-user_guide
 user_guide/index
 user_guide/overview
 user_guide/concepts
@@ -26,8 +22,6 @@ user_guide/solving
 user_guide/reference_states
 user_guide/interface
 user_guide/examples
-concepts
-examples
 ```
 
 ```{toctree}

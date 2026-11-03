@@ -14,12 +14,14 @@ class Tensor:
     Class for amplitude tensors of spin-free excitation operators
 
     Attributes:
-    name            (str)       : name given to tensor
-    lowerIndexTypes (list)      : list of single characters describing types of orbitals in which electrons are created by the tensor operator
-    upperIndexTypes (list)      : list of single characters describing types of orbitals from which electrons are annihilated by the tensor operator
-    excitationRank  (int)       : number of electrons annihilated and created
-    spinFree        (bool)      : whether or not the tensor represents a spin-free operator
-    array           (np.ndarray): array of coefficients
+        name (str): name given to tensor.
+        lowerIndexTypes (list): list of single characters describing types of
+            orbitals in which electrons are created by the tensor operator.
+        upperIndexTypes (list): list of single characters describing types of
+            orbitals from which electrons are annihilated by the tensor operator.
+        excitationRank (int): number of electrons annihilated and created.
+        spinFree (bool): whether or not the tensor represents a spin-free operator.
+        array (np.ndarray): array of coefficients.
 
     Orbital types:
     'g': general  (any orbital)

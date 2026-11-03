@@ -7,13 +7,13 @@ from copy import copy
 
 class BasicOperator:
     '''
-    Class for a basic fermionic creation or annihilation operator, with arbitrary index
-    
+    Class for a basic fermionic creation or annihilation operator, with arbitrary index.
+
     Attributes:
-    index                 (index.Index): the index for the orbitals on which this operator acts
-    creation_annihilation (bool)       : True for creation, False for annihilation
-    spin                  (bool)       : True for alpha, False for beta
-    quasi_cre_ann         (bool)       : creation or annihilation with respect to Fermi vacuum
+        index (index.Index): the index for the orbitals on which this operator acts.
+        creation_annihilation (bool): True for creation, False for annihilation.
+        spin (bool): True for alpha, False for beta.
+        quasi_cre_ann (bool): creation or annihilation with respect to Fermi vacuum.
     '''
     def __init__(self, index_, creation_annihilation_, spin_):
         self.index = index_
@@ -66,13 +66,16 @@ class BasicOperator:
 class OperatorProduct:
     '''
     Product of creation/annihilation operators
-    
+
     Attributes:
-    operatorList             (list) : list of BasicOperator objects representing the creation/annihilation operators in the product
-    prefactor                (float): prefactor
-    contractionsList         (list) : list of (Index, Index) tuples representing contractions between indices appearing in the product
-    normalOrderedStartPoints (list) : positions at which any normal ordered subsequences begin.
-                                      Contractions within these subsequences do not need to be checked
+        operatorList (list): list of BasicOperator objects representing the
+            creation/annihilation operators in the product.
+        prefactor (float): prefactor.
+        contractionsList (list): list of (Index, Index) tuples representing
+            contractions between indices appearing in the product.
+        normalOrderedStartPoints (list): positions at which any normal ordered
+            subsequences begin. Contractions within these subsequences do not
+            need to be checked.
     '''
     def __init__(self, operatorList_=[], prefactor_=1., contractionsList_=[], normalOrderedStartPoints_=[]):
         self.operatorList = operatorList_
