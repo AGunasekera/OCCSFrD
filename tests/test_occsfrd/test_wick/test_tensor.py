@@ -1,19 +1,38 @@
-from occsfrd.wick import tensor
+import numpy as np
+from occsfrd.wick import tensor, operator, index
 
-def test_getShape():
-    assert True
+def test_getShape(ATensor):
+    #Tensor is A_gp^gh, in 2 occupied and 1 virtual orbital
 
-def test_getShapeActive():
-    assert True
+    assert ATensor.array.shape == (3,1,3,2)
+    assert np.all(ATensor.array == 0)
 
-def test_getArray():
-    assert True
+def test_getShapeActive(BTensor):
+    #Tensor is B_gv^pa, in 2 doubly occupied, 1 singly occpied, and 3 virtual orbitals
 
-def test_setArray():
-    assert True
+    assert BTensor.array.shape == (6,3,4,1)
+    assert np.all(BTensor.array == 0)
+
+def test_getAndSetArray():
+    fTensor = tensor.Tensor("f", ["g"], ["g"])
+    assert fTensor.getArray() is None
+
+    fTensor.getShape([1, 0, 0])
+    assert np.all(fTensor.getArray() == np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0]]))
+
+    fTensor.setArray(np.array([[1, 1], [1, 1]]))
+    assert np.all(fTensor.getArray() == np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0]]))
+
+    fTensor.setArray(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+    assert np.all(fTensor.getArray() == np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
 
 def test_getOperator():
-    assert True
+    fTensor = tensor.Tensor("f", ["g"], ["g"], spinFree=True)
+    g0, g1 = index.Index("g_{0}", False), index.Index("g_{1}", False)
+    fOperatorSpinFree = (operator.BasicOperator(g0, True, False) * operator.BasicOperator(g1, False, False)) + (operator.BasicOperator(g0, True, True) * operator.BasicOperator(g1, False, True))
+    print(fTensor, fTensor.getOperator(), fOperatorSpinFree)
+    assert fTensor.getOperator() == fOperatorSpinFree
 
 def test_getDiagrams():
     assert True
@@ -57,10 +76,10 @@ def test_applyContraction():
 def test_addNewIndex():
     assert True 
 
-def getVertexList():
+def test_getVertexList():
     assert True
 
-def getOperatorTensorProduct():
+def test_getOperatorTensorProduct():
     assert True
 
 def test_getVacuumExpectationValue():
@@ -81,8 +100,11 @@ def test_nodeMatch():
 def test_edgeMatch():
     assert True
 
-def test_isProportional():
-    assert True
+def test_isProportional(ccd_directTerm, ccd_exchangeTerm, ccd_exchangeTerm1):
+    print(ccd_exchangeTerm)
+    print(ccd_exchangeTerm1)
+    assert not ccd_directTerm.isProportional(ccd_exchangeTerm)
+    assert ccd_exchangeTerm.isProportional(ccd_exchangeTerm1)
 
 def test_followPropagation():
     assert True

@@ -50,7 +50,7 @@ def recursiveFullContraction(operatorList_, prefactor, existingContractions, nor
     existingContractions: list of (operator.BasicOperator, operator.BasicOperator)
         List of contractions already applied (if any)
     normalOrderedStartPoints: list of int
-        Positions in operatorList_ at which normal ordered blocks start
+        Positions in ``operatorList_`` at which normal ordered blocks start
     speedup: bool
         Whether to use speedup routines (overall quasiparticle number conservation)
 

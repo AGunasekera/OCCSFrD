@@ -3,13 +3,13 @@ Index class for implementing Wick contractions
 """
 
 class Index:
-    """
-    Class for an orbital index
+    """Class for an orbital index.
 
-    name             (str) : name given to index
-    occupiedInVaccum (bool): whether the index refers to orbitals that are occupied in the vacuum
-                             (i.e. hole orbitals) or not (particle orbitals)
-    active           (bool): whether the index refers to active (singly-occupied) orbitals or not
+    Attributes:
+        name (str): name given to index.
+        occupiedInVacuum (bool): whether the index refers to orbitals that are
+            occupied in the vacuum (i.e. hole orbitals) or not (particle orbitals).
+        active (bool): whether the index refers to active (singly-occupied) orbitals.
     """
     def __init__(self, name, occupiedInVacuum, active=False):
         self.name = name

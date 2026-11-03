@@ -53,7 +53,7 @@ from occsfrd.wick import operator, index
 
 def CGCoeff(Sold, Mold, s, m, S, M):
     '''
-    General Clebsh--Gordan coefficient for addition of |s,m> orbital to |Sold, Mold> state to generate |S,M> state.
+    General Clebsch--Gordan coefficient for addition of ``|s,m>`` orbital to ``|Sold, Mold>`` state to generate ``|S,M>`` state.
     '''
     if (Mold + m == M):
         A = sqrt((2 * S + 1) * factorial(int(S + Sold - s)) * factorial(int(S - Sold + s)) * factorial(int(Sold + s - S)) / factorial(int(Sold + s + S + 1)))

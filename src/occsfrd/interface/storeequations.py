@@ -43,6 +43,12 @@ def load(name):
     Returns:
     (dict): dictionary containing the equations (keyed with "equations") and tensors (keyed with "tensors") that were stored in [name].pkl
     '''
+
+    sys.modules['openshellcc'] = sys.modules['occsfrd']
+    sys.modules['openshellcc.wick'] = sys.modules['occsfrd.wick']
+    sys.modules['openshellcc.wick.tensor'] = sys.modules['occsfrd.wick.tensor']
+    sys.modules['openshellcc.wick.index'] = sys.modules['occsfrd.wick.index']
+
     with open(name + ".pkl", 'rb') as f:
         up = pickle.Unpickler(f)
         return up.load()
