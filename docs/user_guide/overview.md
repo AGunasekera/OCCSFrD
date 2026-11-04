@@ -4,17 +4,15 @@ OCCSFrD is built around three ideas:
 
 1. **Wick contraction engine** (`occsfrd.wick`): a general engine for evaluating
    vacuum expectation values of products of second-quantised operators. It handles
-   spin-free and spin-adapted operators, normal ordering, and contraction of
-   free indices.
+   spin-free and spin-adapted operators, normal ordering with respect to closed shell vacua, and symbolic tensor contraction.
 
 2. **Ansatz generators** (`occsfrd.ansatz`): routines that build coupled-cluster
-   ansaetze (closed-shell and open-shell / normal-ordered) as tensor products
-   and derive the corresponding energy and amplitude equations via Wick
-   contractions.
+   ansaetze (closed- or open-shell reference CSF, normal-ordering and truncation of the exponential) as tensor products
+   and derive the corresponding energy and amplitude equations via Wick contractions.
 
 3. **Equation solver** (`occsfrd.solve`): takes a derived equation set (energy +
-   amplitude equations) and a PySCF mean field, builds integrals, and iterates the
-   amplitudes to convergence using DIIS.
+   amplitude equations) and a PySCF mean field object, builds integrals, and iterates the
+   amplitudes to convergence using DIIS, with defined level-shift parameter if required.
 
 A typical run has two phases:
 

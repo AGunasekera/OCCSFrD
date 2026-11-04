@@ -48,9 +48,10 @@ fully contracted terms.
 
 ## Ansatz
 
-An ansatz is a similarity-transformed Hamiltonian `e^{-T} H e^{T}` expanded
-(Baker-Campbell-Hausdorff) and expressed as a tensor product. Projecting onto
-excitation manifolds yields the amplitude equations.
+An ansatz is a similarity-transformed Hamiltonian (in a linked formalism), e.g. `e^{-T} H e^{T}`, expanded
+(Baker-Campbell-Hausdorff) and expressed as a sum of tensor products. Projecting onto
+an excitation manifold yields the amplitude equations.
+In an unlinked formalism, the Hamiltonian is not similarity transformed, but is merely (post-)multiplied by the wave operator, with a more complicated procedure invoked to cancel unlinked terms in `H e^{T}`.
 
 ## Reference (open shell)
 

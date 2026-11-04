@@ -10,12 +10,12 @@ multi-reference coupled cluster methods for open-shell molecular electronic stru
 - A working Fortran compiler (e.g. `gfortran`) when building from source
 - Runtime dependencies: `numpy`, `pyscf`, `networkx`, `requests`
 
-## Install from TestPyPI
+## Install from PyPI
 
-OCCSFrD is currently hosted on the test instance of PyPI:
+OCCSFrD is hosted on the Python Package Index, whence it can be installed using pip:
 
 ```bash
-python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple occsfrd
+python -m pip install occsfrd
 ```
 
 ## Install from source (development)

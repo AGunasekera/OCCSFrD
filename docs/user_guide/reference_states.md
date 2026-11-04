@@ -1,6 +1,6 @@
 # Reference states (open shell)
 
-Open-shell references are configuration state functions (CSFs) generated with
+Open-shell references are usually configuration state functions (CSFs) generated with
 the unitary group approach (UGA).
 
 ## Single CSF
@@ -32,6 +32,7 @@ ref = UGA.multipleCSF_ref(
 ```
 
 Each tuple is `(S, M, dvec, prefactor)`.
+It is also possible to define an arbitrary multideterminant reference state by hand, by constructing an `operatorSum` whose coefficients are set to generate it out of the closed shell vacuum.
 
 ## Clebsch-Gordan helper
 

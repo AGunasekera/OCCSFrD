@@ -30,8 +30,7 @@ import occsfrd
 eqn = occsfrd.interface.storeequations.load("N0S0_qCCSD")  # loads N0S0_qCCSD.pkl
 ```
 
-Equation sets for common methods (e.g. closed-shell CCSD, CCD) are distributed
-via Zenodo and downloaded with
+Equation sets for common methods (e.g. closed-shell CCSD, CCD), as well as some truncated spin-adapted normal-ordered equations for one- and two-electron CSFs are distributed via Zenodo, and can be downloaded with
 `occsfrd.interface.storeequations.downloadFromZenodo`.
 
 ## 3. Run the coupled-cluster calculation
@@ -55,7 +54,7 @@ print("CC energy:", cc_energy)
 
 ## 4. (Optional) Derive your own equations
 
-For research on new ansaetze, OCCSFrD can derive the Wick-contracted equations
-directly. See the user guide sections on
+For research on new ansaetze, OCCSFrD can derive the Wick-contracted equations directly.
+See the user guide sections on
 [closed-shell CC](user_guide/closed_shell.md) and
 [open-shell CC](user_guide/open_shell.md).

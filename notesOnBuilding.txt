@@ -3,7 +3,9 @@ zenodo API integration
  need systematic equation identifiers (custom metadata?)
 
 documentation
- build using sphinx on dpt02 machine, push to github, syncs with readthedocs
+ build using sphinx on dpt02 machine (make html in the docs folder)
+ push to github
+ syncs with readthedocs
 
 testing
  unit tests not really done
