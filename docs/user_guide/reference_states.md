@@ -20,7 +20,7 @@ ref = UGA.singleCSF_ref(
 
 - `S`: total spin.
 - `M`: projection of total spin.
-- `dvec`: list of orbital occupation patterns (0/1/2/3) for the active orbitals.
+- `dvec`: list of orbital occupation patterns for the active orbitals. Follows a convention of Paldus et al.: 0 = empty, 1 = singly occupied (coupled to increase S by 1/2), 2 = singly occupied (coupled to decrease S by 1/2), 3 = doubly occupied.
 
 ## Multiple CSFs
 

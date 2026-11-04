@@ -218,7 +218,7 @@ class Tensor:
                 print(slices)
 #                diagram = Tensor(self.name, newLowerIndexTypes, newUpperIndexTypes)
 #                diagram.array = self.array[slices]
-                diagram = SubDiagram(self, newLowerIndexTypes, newUpperIndexTypes, arraySlices=slices)
+                diagram = SubDiagram(self, newLowerIndexTypes, newUpperIndexTypes)#, arraySlices=slices)
                 diagrams.append(diagram)
         return diagrams
 
@@ -267,7 +267,7 @@ class Tensor:
 #                print(slices)
 #                diagram = Tensor(self.name, newLowerIndexTypes, newUpperIndexTypes)
 #                diagram.array = self.array[slices]
-                diagram = SubDiagram(self, newLowerIndexTypes, newUpperIndexTypes, arraySlices=slices)
+                diagram = SubDiagram(self, newLowerIndexTypes, newUpperIndexTypes)#, arraySlices=slices)
                 diagrams.append(diagram)
         return diagrams
 

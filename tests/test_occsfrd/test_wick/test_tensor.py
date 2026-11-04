@@ -35,70 +35,70 @@ def test_getOperator():
     assert fTensor.getOperator() == fOperatorSpinFree
 
 def test_getDiagrams():
-    assert True
+    assert False
 
 def test_getAllDiagrams():
-    assert True 
+    assert False 
 
 def test_getAllDiagramsGeneral():
-    assert True
+    assert False
 
 def test_getAllDiagramsActive():
-    assert True
+    assert False
     
 def test_assignDiagramArrays():
-    assert True
+    assert False
     
 def test_assignDiagramArraysActive():
-    assert True
+    assert False
 
 def test_conjugate():
-    assert True
+    assert False
 
 def test_setSlices():
-    assert True
+    assert False
 
 def test_getArraySubDiagram():
-    assert True
+    assert False
 
 def test_setArraySubDiagram():
-    assert True  
+    assert False  
 
 def test_calculateArray():
-    assert True
+    assert False
 
 def test_getOperatorVertex():
-    assert True
+    assert False
 
 def test_applyContraction():
-    assert True
+    assert False
 
 def test_addNewIndex():
-    assert True 
+    assert False 
 
 def test_getVertexList():
-    assert True
+    assert False
 
 def test_getOperatorTensorProduct():
-    assert True
+    assert False
 
 def test_getVacuumExpectationValue():
-    assert True
+    assert False
 
 def test_getGraph():
-    assert True
+    assert False
 
 def test_getGraphOld():
-    assert True
+    assert False
 
 def test_drawGraph():
-    assert True
+    assert False
 
 def test_nodeMatch():
-    assert True
+    assert False
 
 def test_edgeMatch():
-    assert True
+    assert False
 
 def test_isProportional(ccd_directTerm, ccd_exchangeTerm, ccd_exchangeTerm1):
     print(ccd_exchangeTerm)
@@ -107,25 +107,25 @@ def test_isProportional(ccd_directTerm, ccd_exchangeTerm, ccd_exchangeTerm1):
     assert ccd_exchangeTerm.isProportional(ccd_exchangeTerm1)
 
 def test_followPropagation():
-    assert True
+    assert False
 
 def test_getFreeIndexPairs():
-    assert True
+    assert False
 
 def test_isProportional1():
-    assert True
+    assert False
 
 def test_isConnected():
-    assert True
+    assert False
 
 def getOperatorTensorSum():
-    assert True
+    assert False
 
 def test_collectIsomorphicTerms():
-    assert True
+    assert False
 
 def test_getConnectedTerms():
-    assert True
+    assert False
     
 def test_collectConnectedIsomorphicTerms():
-    assert True
+    assert False

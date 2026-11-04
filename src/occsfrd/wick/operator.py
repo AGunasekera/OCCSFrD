@@ -185,7 +185,7 @@ class OperatorProduct:
 
     def __eq__(self, other):
         if isinstance(other, OperatorProduct):
-            return self.operatorList == other.operatorList and self.prefactor == other.prefactor and self.contractionsList == other.contractionsList and self.normalOrderedStartPoints == other.normalOrderedStartPoints
+            return self.operatorList == other.operatorList and self.prefactor == other.prefactor and self.contractionsList == other.contractionsList
         elif isinstance(other, Number):
             return self.operatorList == [] and self.prefactor == other
         else:
@@ -199,9 +199,9 @@ class OperatorSum:
         summandList (list): list of OperatorProduct objects being summed
     """
     def __init__(self, summandList_=[]):
-        self.summandList = self.collectSummandList(summandList_)
+        self.summandList = summandList_
 
-    def collectSummandList(self, summandList):
+    def collectedSummandList(self):
         """
         Consolidate terms in summandList that are proportional
 
@@ -211,7 +211,7 @@ class OperatorSum:
         Returns:
             list: distinct terms with total prefactors
         """
-        oldSummandList = copy(summandList)
+        oldSummandList = copy(self.summandList)
         newSummandList = []
         while len(oldSummandList) > 0:
             newSummand = oldSummandList[0]
@@ -225,6 +225,18 @@ class OperatorSum:
             newSummandList.append(newSummand)
             oldSummandList.pop(0)
         return newSummandList
+
+    def collectSummandList(self):
+        """
+        Consolidate terms in summandList that are proportional
+
+        Args:
+            summandList (list): list of operator products to be consolidated
+
+        Returns:
+            OperatorSum: with summands collected
+        """
+        return OperatorSum(self.collectedSummandList())
 
     def conjugate(self):
         """
@@ -360,7 +372,7 @@ def excitation(creationIndicesList_, annihilationIndicesList_, spinList_):
     Args:
         creationIndicesList_ (list): list of index.Index objects for orbitals into which electrons are excited
         annihilationIndicesList_ (list): list of index.Index objects for orbitals from which electrons are excited
-        spinList_ (list): list of bools for the spin (True / 0 for alpha, False / 0 for beta) of each electron
+        spinList_ (list): list of bools for the spin (True / 1 for alpha, False / 0 for beta) of each electron
 
     Returns:
         OperatorProduct: the excitation operator
